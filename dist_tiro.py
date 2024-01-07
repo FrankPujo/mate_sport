@@ -13,11 +13,16 @@ def calc_prob(x, y):
 	dp2 = math.sqrt(dp2_sq)
 	lp_sq = 7.32 ** 2
 	#law of cosines
-	angle = math.acos((dp1_sq + dp2_sq - lp_sq)/(2 * dp1 * dp2))
+	ang_porta = math.acos((dp1_sq + dp2_sq - lp_sq)/(2 * dp1 * dp2))
+	ang_porta_norm = math.sqrt( ang_porta / math.pi )
 	
 	dist = math.sqrt(x**2 + y**2)
+	dist_norm = (75 - dist) / 75
 	
-	return math.sqrt((60 - dist) * math.sqrt(angle))
+	ang_ass = math.atan(abs(x)/abs(y))
+	ang_ass_norm = (math.pi - ang_ass) / math.pi
+	
+	return ang_porta_norm
 
 data = []
 for i in range(10):
